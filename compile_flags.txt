@@ -1,0 +1,5 @@
+-std=c++11
+-Wall
+-I/opt/homebrew/include
+
+-I/opt/homebrew/include
