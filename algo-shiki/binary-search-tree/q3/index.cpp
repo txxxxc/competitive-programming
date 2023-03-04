@@ -12,7 +12,7 @@ int main() {
 		int tmp = b[i];
 		int left = 0;
 		int right = N-1;
-		while (right - left > 1) {
+		while (left != right) {
 			int mid = (right + left) / 2;
 			if (tmp <= a[mid]) right = mid;
 			if (tmp > a[mid]) left = mid+1;
