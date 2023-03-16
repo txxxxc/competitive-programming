@@ -5,14 +5,13 @@ using namespace std;
 using ll = long long;
 
 int main() {
-  long long N, K; cin >> N >> K;
-
-  long long count = 0;
-  for (int i=0; i<N; i++) {
-    count += min(N, K/(i+1));
-  }
-
-  cout << count << endl;
+	ll N, K; cin >> N >> K;
+	ll answer = 0;
+	rep(i, N) {
+		cout << endl;
+		answer += min(N, K/(i+1));
+	}
+	cout << answer << endl;
 	return 0;
 }
 
