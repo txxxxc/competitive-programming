@@ -15,11 +15,9 @@ int main() {
 	sort(B.begin(), B.end());
 	int answer = 1000000000;
 
-	// Aの要素を取るN
-	// - Bの要素で2分探索
+	// Bの要素で2分探索
 	rep(i, N) {
-		int ng = -1;
-		int ok = B.size() - 1;
+		int ng = 0, ok = B.size() - 1;
 		while(ok - ng > 1) {
 			int mid = (ng + ok) / 2;
 			if (A[i] <= B[mid]) ok = mid;

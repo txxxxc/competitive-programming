@@ -11,6 +11,7 @@ int main() {
 	int b = s[1] - '0';
 	int c = s[2] - '0';
 	int d = s[3] - '0';
+
 	int list[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 	if (a == b && b == c && c == d) {
 		cout << "Weak" << endl;
@@ -19,9 +20,9 @@ int main() {
 
 	bool result = true;
 	if (
-		(list[a] + 1) % 10 == b &&
-		(list[b] + 1) % 10 == c &&
-		(list[c] + 1) % 10 == d
+	  (list[a] + 1) % 10 == b &&
+	  (list[b] + 1) % 10 == c &&
+	  (list[c] + 1) % 10 == d
 	) {
     result = false;
 	}
