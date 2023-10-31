@@ -3,37 +3,32 @@ using namespace std;
 #define debug(arg) std::cerr << #arg << ": " << (arg) << '\n'
 #define INF ((1LL<<62)-(1LL<<31)) 
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
+#define all(x) (x).begin(),(x).end()
 using ll = long long;
+using P = pair<int, int>;
+using Graph = vector<vector<int>>;
+
+int a[100100];
+int b[100100];
+int c[100100];
+int result[100100];
 
 int main() {
-  int N, K; cin >> N >> K;
-	int result = 0;
-	int ans = 0;
-	map<int, int> s;
-	vector<int> list(N);
-	int left = 0, right = 0;
-	rep(i, N) cin >> list[i];
-	// 一旦K-1までsetに入れる
-	rep(i, K) {
-		s[list[i]]++;
-		if (s[list[i]] == 1) result++;
+	int N; cin >> N;
+	ll answer = 0;
+	rep(i, N) { cin >> a[i]; }
+	rep(i, N) { cin >> b[i]; }
+	rep(i, N) { cin >> c[i]; }
+	rep(i, N) {
+		result[b[c[i]-1]]++;
 	}
-	right = K-1;
-	ans = max(result, ans);
 
-	while(right != N-1) {
-		s[list[left]]--;
-		if (!s[list[left]]) result--;
-		left += 1;
+	for(int i = 0; i < N; i++) {
+		answer += result[a[i]];
+	}
 
-		right += 1;
-		s[list[right]]++;
-		if (s[list[right]] == 1) result++;
-    
-		ans = max(ans, result);
-	} 
+	cout << answer << endl;
 
-	cout << ans << endl;
 	return 0;
 }
 
