@@ -15,9 +15,11 @@ int main() {
 	sort(all(L));
 
 	// 1 2 3 4 5
-	rep(b, N){
-	  rep(a, b) {
-			cout << "a: " << a << ", b: " << b << endl;
+	// rep(b, N){
+	for(int a = 0; a< N; a++) {
+		for(int b = a+1; b< N; b++) {
+	  // rep(a, b) {
+			// cout << "a: " << a << ", b: " << b << endl;
 			// a - b < c && b - a < c は気にしなくてOK
 			int e = L[a]+L[b]; // e > c;
 
