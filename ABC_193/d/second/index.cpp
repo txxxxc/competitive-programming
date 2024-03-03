@@ -9,8 +9,8 @@ using P = pair<int, int>;
 using Graph = vector<vector<int>>;
 
 int score(string s) {
-	map<int, int> mp;
-	int v = 0;
+	map<int, ll> mp;
+	ll v = 0;
 	for (int i = 1; i <= 9; i++) {
 		mp[i] = i;
 	}
@@ -28,7 +28,7 @@ int score(string s) {
 
 // 勝率 = 勝つ確率/ 全部の確率
 int main() {
-	int k; cin >> k;
+	ll k; cin >> k;
 	string s, t; cin >> s >> t;
 	map<int, int> mp;
   ll count = 0;
@@ -44,26 +44,22 @@ int main() {
 		mp[cj-'0']--;
 	}
 
-	// for (auto v: mp) {
-	// 	cout << v.first << " " << v.second << endl;
-	// }
-
 	// 分子の計算
 	for (int i = 1; i <= 9; i++) {
-		if (mp[i] == 0) continue; 
 		for (int j = 1; j<=9; j++) {
 			if (mp[j] == 0) continue; 
 			// スコアの計算
-			int sv = score(s + list[i]);
-			int st = score(t + list[j]);
+			s[4] = list[i];
+			t[4] = list[j];
+		  ll sv = score(s);
+			ll st = score(t);
 			if (sv <= st) continue;
 			count += mp[i] * (mp[j] - (i == j));
+		}
 	}
-	}
-	ll rem = (9*k-8) * (9*k-9);
-  cout << rem << endl;
-	double ans = (double)count/rem;
-	printf("%.10f\n", ans);
+	ll all = (9*k-8) * (9*k-9);
+  double ans = (double)count/all;
+	cout << setprecision(10) << ans << endl;
 
 	return 0;
 }
